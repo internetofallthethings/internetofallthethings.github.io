@@ -1,1 +1,172 @@
-9b3adc31c4e5a030c20a75b8539f56eb0699c205
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The internet of things contains all the things.">
+
+<title>blog dot Internet of All The Things dotcom</title>
+<link rel="stylesheet" href="/css/pure/0.5.0/pure-min.css">
+
+<!--[if lte IE 8]>
+    <link rel="stylesheet" href="css/pure/0.5.0/grids-responsive-old-ie-min.css">
+    <link rel="stylesheet" href="css/layouts/blog-old-ie.css">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="css/pure/0.5.0/grids-responsive-min.css">
+    <link rel="stylesheet" href="css/layouts/blog.css">
+<!--<![endif]-->
+
+</head>
+<body>
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+        <div class="header">
+            <hgroup>
+                <h1 class="brand-title">All The Things</h1>
+                <h2 class="brand-tagline">A blog about every Thing on the internet</h2>
+            </hgroup>
+
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a class="pure-button" href="/">Root</a>
+                        <a class="pure-button" href="about.html">About</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            <!-- A wrapper for all the blog posts -->
+
+            <div class="posts">
+                <h1 class="content-subhead">Posts about The Internet of All The Things</h1>
+
+                <section class="post">
+                    <header class="post-header">
+                        <img class="post-avatar" alt="Thoughtleader" height="48" width="48" src="img/common/thoughtleader.jpg">
+
+                        <h2 class="post-title">Powering the Internet of Things, Cheaply</h2>
+
+                        <p class="post-meta">
+                            By <a class="post-author" href="#">Thought Leader</a> under 
+							<a class="post-category post-category-js" href="#">IoT</a> 
+							<a class="post-category post-category-js" href="#">SCADA</a> 
+							<a class="post-category post-category-js" href="#">ICS</a>
+							<a class="post-category post-category-js" href="#">Power</a>
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>
+                            This internet of things is a big place. The internet of things has a veritable SHIT TON of 'things' on it. As a matter	 of fact, the internet has All The Things on it. As a thought leader on the IoT and everything
+							on the internet, I decided I'd write a blog post. 
+                        </p>
+						
+                        <p>
+							The Internet of All The Things requires power in order to run! Literally, the Internet of All The Things needs electricity to power itself. So with that in mind I present this one weird trick you might use when powering some gear.
+                        </p>
+						
+						<p>
+							I recently took a look at a salt water disposal well. This well site uses a ton of industrial control and automation gear. This automation equipment is used to monitor various sensors and control things like pumps. This SCADA system 
+							is then connected to the internet. This thing-on-the-internet is a member of the internet of things (IoT), or as I prefer to call them, The Internet of All The Things.
+						</p>
+						
+						<p>
+							So, you and I know that 'taking a look at' really means 'hack the shit out of.' So on this trip to hack All The Things, I certainly hacked some of the things, but not All The Things. So in my quest to hack further things, I bought one 
+							piece of equipment found at the well site I was 'looking at.' The item in question is a human-machine interface that has lots of neat functionality.
+						</p>
+						
+						<p>
+							I was super excited to place my order from a vendor and receive the ICS gear at my doorstep. The gear arrives, and I hadn't considered the need to power the gear. Opening the box and reading the docs showed I needed 24V power.
+							I looked around at <a href="http://en.wikipedia.org/wiki/DIN_rail">DIN rail</a> power supplies, since that was how 	the well construction crew powered the equipment. This proved to be a hassle in a number of ways. The biggest hassle
+							turned out to be the amount of time it would take to get a DIN rail power supply. So I turned to a local electronics supplier.
+						</p>
+						
+						<p>
+							I went and picked up a <a href="http://www.vellemanusa.com/products/view/?id=522746">Velleman PS3003U</a> bench power supply. This power supply supports up to 30V and 3A, and looked like it would do the trick. A nice feature of the unit is its
+							digital Amp and Volt displays. You lock in the voltate you want and load it up!
+						</p>
+						
+						<div class="post-images pure-g">							
+							<div class="pure-u-1 pure-u-md-1-1">
+								<a href="http://www.vellemanusa.com/products/view/?id=522746">
+								<img alt="Velleman power supply"
+								class="pure-img-responsive"
+								src="/img/post/000/ps3003.jpg">
+								</a>
+							</div>
+						</div>
+						
+						<p>
+							Of course, this expensive-ass power supply worked. I would have been PISSED at my stupidity if I bought something that didn't work. That would mean I hadn't done my homework. I happily went about my tasks of looking at the ICS gear I was now powering. After about a week I had a sudden realization. One important detail to note here is I found the gear draws about 0.3A.
+						</p>
+						
+						<p>
+							Back when I was looking for what power supply to get, I was talking with another ICS/SCADA security researcher, who mentioned that back in the day he would power 24V on the cheap using multiple ATX-12V power supplies wired in series. That sounded really cool. After considering what he mentioned, I realized that <a href="http://en.wikipedia.org/wiki/Power_over_Ethernet">Power-over-Ethernet</a> (PoE) equipment I've seen tends to use 24V or 48V. Being that I have some PoE equipment, I wanted to see if I could have saved myself a ton of money. 
+						</p>	
+						
+						<p>
+							Looking at <a href="http://www.ispsupplies.com/brands/Accessories_12/Ubiquiti-POE-24-12W.html">this PoE adapter</a> from <a href="http://ubnt.com">Ubiquity</a>, I see its output is 24V, 0.5A. This falls right in line with what the equipment needs. Looking at the PoE specifications, it seems that pins 4 and 5 are +24V, and pins 7 and 8 are -24V. I measured the voltage off those pins, and once I was satisfied it might work, I wired the PoE adapter in place of my much more expensive bench supply.
+						</p>
+						
+						<div class="post-images pure-g">							
+							<div class="pure-u-1 pure-u-md-1-1">
+								<a href="http://www.ispsupplies.com/brands/Accessories_12/Ubiquiti-POE-24-12W.html">
+								<img alt="Ubiquity 24V PoE adapter"
+								class="pure-img-responsive"
+								src="/img/post/000/poe.png">
+								</a>
+							</div>
+						</div>
+						
+						<p>
+							TL;DR -- hopefully you skipped all that search engine trolling I did above. This is the punchline: a properly wired 24V PoE adapter powered the SCADA gear perfectly. That fucking PoE brick costs $18! The bench power supply cost about $100 more! I felt really stupid once I found this out. Don't get me wrong, I am glad to have a proper power supply, but when I take this gear on the road, which power supply do you think I'm taking with me?
+						</p>
+						
+						<div class="post-images pure-g">							
+							<div class="pure-u-1 pure-u-md-1-1">
+								<img alt="Ubiquity 24V PoE adapter"
+								class="pure-img-responsive"
+								src="/img/post/000/comparative-sizes.png">
+							</div>
+						</div>
+
+					   <p>
+						   Thanks for reading along. This post wasn't the most highly-technical, and didn't feature any talk about IoT security. I'm just going to blog about the things I see when I go 'looking at stuff.' Hit me up at <a href="http://twitter.com/internetofall">@InternetOfAll</a>.
+					   </p>
+					   
+					<div class="post-images pure-g">							
+						<div class="pure-u-1 pure-u-md-1-1">
+							<img alt="Ubiquity 24V PoE adapter"
+							class="pure-img-responsive"
+							src="/img/post/000/sup-iot.png">
+						</div>
+					</div>
+					   
+                    </div>
+                </section>
+
+
+            <div class="footer">
+                <div class="pure-menu pure-menu-horizontal pure-menu-open">
+                    <ul>
+                        <!--li><a href="/about.html"></a></li-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</body>
+</html>
