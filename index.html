@@ -50,6 +50,96 @@
                     <header class="post-header">
                         <img class="post-avatar" alt="Thoughtleader" height="48" width="48" src="img/common/thoughtleader.jpg">
 
+                        <h2 class="post-title">Project Redlion</h2>
+
+                        <p class="post-meta">
+                            By <a class="post-author" href="#">Thought Leader</a> under 
+							<a class="post-category post-category-js" href="#">Code</a>
+							<a class="post-category post-category-js" href="#">ICS</a>
+							<a class="post-category post-category-js" href="#">Nmap</a>
+							<a class="post-category post-category-js" href="#">Wireshark</a>
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+					   
+						<p>
+							At a recent <a href="http://takeonme.org/">Austin Hackers Anonymous</a> meeting, I presented the first small amount of progress I made in
+							a SCADA security research project I've recently begun. As you'll see shortly, I'm not a very creative code name inventor.
+							
+						</p>
+						
+						<p>
+							<img src="img/post/001/project-redlion-title-slide.png">
+						</p>
+						
+						<p>
+							The object of my research as part of this project is the Red Lion Controls G306a human machine interface. That's a fancy 
+							way of saying, "computer with a touchscreen, dedicated buttons, and tons of attack surface." I recently ran into this device
+							in the wild. This device served as the master ICS controller for the entire site. On-site users interact directly with this device 
+							to open valves, operate pumps, and monitor tank levels. Remote operators can do this over a web interface. 
+						</p>
+						
+						<p>
+							The G306a is interesting from simply a network protocol perspective. This embedded device runs a web server, speaks more SCADA 
+							protocols than C-3PO, and has some really interesting programmability features. It runs a system called the Crimson 3.0 Runtime.
+							There's tons of work I want to do with this device. I'm going to try and contribute tools and knowledge about all the things, because
+							these are things on the Internet of All the Things!
+						</p>
+						
+						<h3>Crimson 3.0 programming protocol in Wireshark</h3>
+						<p>
+							I became interested in the TCP protocol the Crimson v3.0 desktop software uses when communicating with the G306a. If you configure
+							a panel to allow network updates, the device will listen to TCP port 789 by default. Asset owners program the device interface,
+							configure protocols to operate in the ICS environment, update firmware, and even add self-written executable source code.
+						</p>
+						
+						<p>
+							I started digging into the protocol, and have a very basic parser working in wireshark. If you have a Red Lion device, you can perform
+							basic protocol decoding by installing this Lua script into your environment. Edit the file <code>~/.wireshark/init.lua</code> and add something
+							similar to the following.
+						</p>
+
+						<p>
+							<code>
+								dofile(os.getenv("HOME") .. "/path-to/cr3.lua")
+							</code>
+						</p>
+						
+						<p>
+							The protocol is a TLV structure with a TLV inside the payload. I'm still working on decoding these subtypes, but I wanted 
+							to share the code I've written in case it might benefit someone out there.
+						</p>
+
+						<p>
+							Go download the code for this Wireshark dissector over at <a href=https://github.com/internetofallthethings/cr3-wireshark>GitHub</a>
+						</p>
+
+						<h3>Fingerprinting Red Lion Control devices remotely</h3>
+
+						<p>
+							I want to be able to look out over the Internet of Things and find these devices. If you're doing SCADA/ICS security audits, 
+							you may at some point run into one of these devices on your target network. The presence of a listening socket on TCP port 789
+							is likely sufficient to identify a Red Lion HMI device. However, the protocol supports a couple of messages types for identifying
+							the device manufacturer and model number. So I've also released an Nmap script that will fingerprint the device.
+						</p>
+						<p>
+							Go download the code for this Nmap NSE script over at <a href=https://github.com/internetofallthethings/cr3-nmap>GitHub</a>. It 
+							looks like this script, with a few modifications, should get included in the Nmap build at some point. I'll keep you updated.
+						</p>
+
+						<h3>Project Redlion</h3>
+						<p>
+							This project will be ongoing for awhile. Keep a look out on this blog and over on Twitter <a href=https://twitter.com/internetofall>@InternetOfAll</a>.
+							I will continue dropping code and science on your fucking ass! Booyakasha!
+						</p>
+                    </div>
+                </section>
+
+                <section class="post">
+                    <header class="post-header">
+                        <img class="post-avatar" alt="Thoughtleader" height="48" width="48" src="img/common/thoughtleader.jpg">
+
                         <h2 class="post-title">Powering the Internet of Things, Cheaply</h2>
 
                         <p class="post-meta">
@@ -154,13 +244,12 @@
 						<div class="pure-u-1 pure-u-md-1-1">
 							<img alt="Ubiquity 24V PoE adapter"
 							class="pure-img-responsive"
-							src="/img/post/000/sup-iot.jpg">
+							src="http://bit.ly/1wPwvni">
 						</div>
 					</div>
 					   
                     </div>
                 </section>
-
 
             <div class="footer">
                 <div class="pure-menu pure-menu-horizontal pure-menu-open">
